@@ -11,6 +11,7 @@ public class Portfolio <T extends Asset> {
     public void ajouterActif(T actif, double quantite){
         if(quantite<=0){
             System.out.println("Quantité invalide!");
+            return;
         }
         if(actifs.containsKey(actif)){
             double acQuantite = actifs.get(actif);

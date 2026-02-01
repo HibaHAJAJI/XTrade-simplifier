@@ -31,7 +31,7 @@ public void venteAsset(Asset actif ,double quantite){
 
      if (vendu){
          double mantant = actif.getPrix()*quantite;
-         mantant +=solde;
+         solde += mantant;
          System.out.println("Vente réussie");
      }
 }
@@ -40,7 +40,7 @@ public void venteAsset(Asset actif ,double quantite){
     public Trader(int id, String nom, double solde) {
         super(id, nom);
         this.solde = solde;
-        this.portfolio =new Portfolio<>();
+        this.portfolio=new Portfolio<>();
     }
 
     public double getSolde() {

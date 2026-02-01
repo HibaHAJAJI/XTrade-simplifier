@@ -1,5 +1,5 @@
 public abstract class Asset {
-    private int code;
+    private String code;
     private String nom;
     private double prix;
 
@@ -10,7 +10,7 @@ public abstract class Asset {
         return quantite*prix;
     }
 
-    public Asset(int code, String nom, double prix) {
+    public Asset(String code, String nom, double prix) {
         this.code = code;
         this.nom = nom;
         this.prix = prix;
@@ -22,19 +22,19 @@ public boolean equals(Object o) {
       if (o == null || getClass() != o.getClass()) return false;
 
          Asset actif = (Asset) o;
-         return code == actif.code;
+         return code.equals(actif.code);
 
  }
 @Override
 public int hashCode(){
-        return Integer.hashCode(code);
+        return code.hashCode();
 }
 
-    public int getCode() {
+    public String getCode() {
         return code;
     }
 
-    public void setCode(int code) {
+    public void setCode(String code) {
         this.code = code;
     }
 

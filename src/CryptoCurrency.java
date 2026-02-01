@@ -1,6 +1,6 @@
 public class CryptoCurrency extends Asset{
 
-    public CryptoCurrency(int code, String nom, double prix) {
+    public CryptoCurrency(String code, String nom, double prix) {
         super(code, nom, prix);
     }
 
