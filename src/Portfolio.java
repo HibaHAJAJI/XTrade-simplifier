@@ -15,7 +15,7 @@ public class Portfolio <T extends Asset> {
         }
         if(actifs.containsKey(actif)){
             double acQuantite = actifs.get(actif);
-            double nQuantite=acQuantite+quantite;
+            double nQuantite = acQuantite+quantite;
             actifs.put(actif,nQuantite);
         }else {
             actifs.put(actif,quantite);

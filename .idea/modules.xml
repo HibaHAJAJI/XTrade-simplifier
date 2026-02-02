@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/Trader.iml" filepath="$PROJECT_DIR$/.idea/Trader.iml" />
-      <module fileurl="file://$PROJECT_DIR$/XTrader/XTrader.iml" filepath="$PROJECT_DIR$/XTrader/XTrader.iml" />
+      <module fileurl="file://$PROJECT_DIR$/XTrade-simplifier.iml" filepath="$PROJECT_DIR$/XTrade-simplifier.iml" />
     </modules>
   </component>
 </project>

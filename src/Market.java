@@ -44,6 +44,9 @@ public class Market {
 
         assets.add(actif);
         System.out.println("Asset ajouté ✔️");
+        for (Asset a : assets){
+            System.out.println(a.getNom()+"-"+a.getCode()+"-"+a.getType()+"-"+a.getPrix());
+        }
     }
 
 
@@ -59,6 +62,10 @@ public class Market {
         Trader trader= new Trader(id,nom,solde);
         traders.add(trader);
         System.out.println("Trader ajouté ✔️");
+        //afficher trader
+        for (Trader t : traders){
+            System.out.println(t.getNom()+"-"+t.getSolde());
+        }
     }
 
     private Trader choisirTrader() {
@@ -156,7 +163,7 @@ public class Market {
                   nvPrix=1;
               }
               a.setPrix(nvPrix);
-             System.out.println(a.getNom() + " "+acPrix +nvPrix);
+             System.out.println("Nom :" +a.getNom() + "Prix accien "+acPrix+"Nouvelle prix" +nvPrix);
 
          }
     }

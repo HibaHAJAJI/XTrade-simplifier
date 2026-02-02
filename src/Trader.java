@@ -58,4 +58,13 @@ public void venteAsset(Asset actif ,double quantite){
     public void setPortfolio(Portfolio<Asset> portfolio) {
         this.portfolio = portfolio;
     }
+
+    @Override
+    public String toString() {
+        return "Trader{" +
+                "solde=" + solde +
+                ", portfolio=" + portfolio +
+                '}';
+    }
 }
+

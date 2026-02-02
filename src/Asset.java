@@ -6,7 +6,9 @@ public abstract class Asset {
 
 
     public  abstract String getType();
+
     public  double CalculerValeur(double quantite){
+
         return quantite*prix;
     }
 
