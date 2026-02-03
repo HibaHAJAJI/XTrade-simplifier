@@ -47,18 +47,21 @@ public class Portfolio <T extends Asset> {
         }
         return total;
     }
+    public void afficherPortfolio() {
+            if(actifs.isEmpty()){
+                System.out.println("Portfolio vide");
+                return;
+            }
+            for (Map.Entry<T,Double>entry: actifs.entrySet()){
+                T actif = entry.getKey();
+                double quantite = entry.getValue();
 
-    public void afficherProtflio(){
-        if(actifs.isEmpty()){
-            System.out.println("Portfolio vide");
-            return;
-        }
-        for (Map.Entry<T,Double>entry: actifs.entrySet()){
-            T actif = entry.getKey();
-            double quantite = entry.getValue();
+                System.out.println("Type :"+actif.getType()+ " Quantité :"+quantite+" Valeur :"+actif.CalculerValeur(quantite));
+            }
+            System.out.println("Valeur totale :"+calculerTotal()+"DH");
 
-            System.out.println("Type :"+actif.getType()+ "Quantité :"+quantite+"Valeur :"+actif.CalculerValeur(quantite));
         }
-           System.out.println("Valeur totale :"+calculerTotal());
     }
-}
+
+
+

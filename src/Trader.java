@@ -5,7 +5,7 @@ public class Trader extends Person {
 
 
 
-    public void acheterAsset(Asset actif ,double quantite){
+    public void effuctuerAchetAsset(Asset actif ,double quantite){
       if(quantite<=0){
           System.out.println("Quantité invalide");
           return;
@@ -21,7 +21,7 @@ public class Trader extends Person {
     }
 }
 
-public void venteAsset(Asset actif ,double quantite){
+public void effuctuerventeAsset(Asset actif ,double quantite){
      if(quantite<=0){
          System.out.println("Quantité invalide");
          return;
@@ -36,7 +36,6 @@ public void venteAsset(Asset actif ,double quantite){
      }
 }
 
-
     public Trader(int id, String nom, double solde) {
         super(id, nom);
         this.solde = solde;
@@ -46,18 +45,10 @@ public void venteAsset(Asset actif ,double quantite){
     public double getSolde() {
         return solde;
     }
-
-    public void setSolde(double solde) {
-        this.solde = solde;
-    }
-
     public Portfolio<Asset> getPortfolio() {
         return portfolio;
     }
 
-    public void setPortfolio(Portfolio<Asset> portfolio) {
-        this.portfolio = portfolio;
-    }
 
     @Override
     public String toString() {

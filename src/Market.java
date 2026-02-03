@@ -25,7 +25,7 @@ public class Market {
                 typeAsset = sc.nextInt();
                 sc.nextLine();
             }catch (Exception e){
-                System.out.println("Error: la chaîne de caractères n'est pas un nombre valide.");
+                System.out.println("Error: la chaîne de caractères n'est pas un nombre valide."+e);
             }
         }while (typeAsset!=1 && typeAsset!=2);
         System.out.println("Entrer Code :");
@@ -118,7 +118,10 @@ public class Market {
 
         System.out.println("Quantité :");
         double quantite= sc.nextDouble();
-        trader.acheterAsset(actif,quantite);
+
+
+
+        trader.effuctuerAchetAsset(actif,quantite);
 
         Transaction trans =new Transaction("Achat",actif,quantite,new Date());
         transactions.add(trans);
@@ -136,7 +139,7 @@ public class Market {
 
         System.out.println("Quantite :");
         double quantite = sc.nextDouble();
-        trader.venteAsset(actif,quantite);
+        trader.effuctuerventeAsset(actif,quantite);
 
         Transaction trans =new Transaction("Vente",actif,quantite,new Date());
         transactions.add(trans);
@@ -163,7 +166,7 @@ public class Market {
                   nvPrix=1;
               }
               a.setPrix(nvPrix);
-             System.out.println("Nom :" +a.getNom() + "Prix accien "+acPrix+"Nouvelle prix" +nvPrix);
+             System.out.println("Nom :" +a.getNom() + " Prix accien "+acPrix+" DH "+" Nouvelle prix" +nvPrix+" DH");
 
          }
     }
@@ -182,11 +185,12 @@ public class Market {
         }
     }
 
-    public void afficherPortfolioTrader(){
-        Trader trader =choisirTrader();
-        if (trader==null)return;
-       Portfolio portfolio =new Portfolio<>();
-       portfolio.afficherProtflio();
+    public void afficherPortfolioTrader() {
+        Trader trader = choisirTrader();
+        if (trader == null) return;
+
+        System.out.println("Solde : " + trader.getSolde());
+        trader.getPortfolio().afficherPortfolio();
     }
 
     public void afficherTransactions(){

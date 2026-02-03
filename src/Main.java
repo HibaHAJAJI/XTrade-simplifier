@@ -22,7 +22,7 @@ public  class Main {
                     case 3: market.UpdatePrixAsset(); break;
                 }
             } catch (Exception e) {
-                System.out.println("Erreur");
+                System.out.println("Erreur"+e);
             }
         } while (choix != 4);
         return choix;
@@ -46,34 +46,23 @@ public  class Main {
                 choose = input.nextInt();
 
                 switch (choose) {
-                    case 1: market.acheter();
-                        break;
+                    case 1: market.acheter();break;
 
-                    case 2:
-                        market.vendre();
-                        break;
+                    case 2: market.vendre();break;
 
-                    case 3:
-                        market.afficherPortfolioTrader();
-                        break;
+                    case 3: market.afficherPortfolioTrader();break;
 
-                    case 4:
-                        market.afficherTransactions();
-                        break;
+                    case 4: market.afficherTransactions();break;
 
-                    case 5:
-                        market.afficherAssets();
-                        break;
+                    case 5: market.afficherAssets();break;
 
-                    case 6:
-                        System.out.println("Au revoir 👋");
-                        break;
+                    case 6: System.out.println("Au revoir 👋");break;
 
                     default:
                         System.out.println("Choix invalide");
                 }
             } catch (Exception e) {
-                System.out.println("Error: la chaîne de caractères n'est pas un nombre valide.");
+                System.out.println("Error: la chaîne de caractères n'est pas un nombre valide."+e);
             }
         } while (choose != 6);
 
@@ -82,10 +71,7 @@ public  class Main {
 
 
     public static void main(String[] args) {
-
-
-            int choisi = 0;
-
+        int choisi = 0;
             do {
                 System.out.println("======== MENU PRINCIPAL =======");
                 System.out.println("|_________| XTrader |_________|\n" +
@@ -107,9 +93,7 @@ public  class Main {
                         break;
                 }
 
-
             }while (choisi != 3) ;
-
 
         }
     }
