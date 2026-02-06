@@ -3,20 +3,20 @@ import java.util.Random;
 public class Market {
 
     private List<Asset> assets;
-    private List<Trader>traders;
-    private List<Transaction>transactions;
+    private List<Trader> traders;
+    private List<Transaction> transactions;
     private Scanner sc;
 
-    public Market(){
-        assets=new ArrayList<>();
-        traders=new ArrayList<>();
-        transactions=new ArrayList<>();
-        sc=new Scanner(System.in);
+    public Market() {
+        assets = new ArrayList<>();
+        traders = new ArrayList<>();
+        transactions = new ArrayList<>();
+        sc = new Scanner(System.in);
     }
 
-    public void ajouterAsset(){
+    public void ajouterAsset() {
         System.out.println("===== Ajouter Asset =====");
-        int typeAsset =0;
+        int typeAsset = 0;
         do {
             try {
                 System.out.println("1. Stock");
@@ -24,29 +24,30 @@ public class Market {
                 System.out.print("Choisir le type : ");
                 typeAsset = sc.nextInt();
                 sc.nextLine();
-            }catch (Exception e){
-                System.out.println("Error: la chaîne de caractères n'est pas un nombre valide."+e);
+            } catch (Exception e) {
+                System.out.println("Error: la chaîne de caractères n'est pas un nombre valide." + e);
             }
-        }while (typeAsset!=1 && typeAsset!=2);
+        } while (typeAsset != 1 && typeAsset != 2);
         System.out.println("Entrer Code :");
-        String code= sc.nextLine();
+        String code = sc.nextLine();
         System.out.println("Entrer Nom :");
-        String nom=sc.nextLine();
+        String nom = sc.nextLine();
         System.out.println("Entrer le prix :");
         double prix = sc.nextDouble();
 
         Asset actif;
-        if(typeAsset==1){
-            actif=new Stock(code,nom,prix);
+        if (typeAsset == 1) {
+            actif = new Stock(code, nom, prix);
         } else {
-            actif=new CryptoCurrency(code,nom,prix);
+            actif = new CryptoCurrency(code, nom, prix);
         }
 
         assets.add(actif);
         System.out.println("Asset ajouté ✔️");
-        for (Asset a : assets){
-            System.out.println(a.getNom()+"-"+a.getCode()+"-"+a.getType()+"-"+a.getPrix());
+        for (Asset a : assets) {
+            System.out.println(a.getNom() + "-" + a.getCode() + "-" + a.getType() + "-" + a.getPrix());
         }
+
     }
 
 
@@ -171,18 +172,25 @@ public class Market {
          }
     }
 
-    public void afficherAssets() {
+    public List<Asset> afficherAssets() {
         System.out.println("===== Liste des Assets =====");
 
         if (assets.isEmpty()) {
             System.out.println("Aucun asset disponible ");
-            return;
+            return null;
         }
 
         for (Asset a : assets) {
             System.out.println("Code: " + a.getCode() +" Nom: " + a.getNom() + " Type: " + a.getType() + " Prix: " + a.getPrix()
             );
         }
+
+        int i=0;
+        while (i<assets.size()){
+            System.out.println(assets);
+            i++;
+        }
+        return assets;
     }
 
     public void afficherPortfolioTrader() {

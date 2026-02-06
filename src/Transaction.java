@@ -3,6 +3,7 @@ import java.util.Date;
 public class Transaction {
     private String type;
     private Asset actif;
+    private Trader trader;
     private double quantite;
     private Date date;
 
@@ -29,5 +30,11 @@ public class Transaction {
         return date;
     }
 
+    public Trader getTrader() {
+        return trader;
+    }
 
+    public void setTrader(Trader trader) {
+        this.trader = trader;
+    }
 }
