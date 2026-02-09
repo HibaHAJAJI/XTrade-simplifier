@@ -1,16 +1,20 @@
+import java.time.LocalDate;
 import java.util.Date;
 
 public class Transaction {
     private String type;
     private Asset actif;
+    private Trader trader;
     private double quantite;
-    private Date date;
+    private LocalDate date;
+    private double montant;
 
-    public Transaction(String type, Asset actif, double quantite, Date date) {
+    public Transaction(String type, Asset actif, double quantite,Trader trader) {
         this.type = type;
         this.actif = actif;
         this.quantite = quantite;
-        this.date = date;
+        this.trader=trader;
+        this.date = LocalDate.now();
     }
 
     public String getType() {
@@ -25,9 +29,20 @@ public class Transaction {
         return quantite;
     }
 
-    public Date getDate() {
+    public LocalDate getDate() {
         return date;
     }
 
+    public void setDate(LocalDate date) {
+        this.date = date;
+    }
+
+    public Trader getTrader() {
+        return trader;
+    }
+
+    public double getMontant() {
+        return actif.getPrix()*montant;
+    }
 
 }

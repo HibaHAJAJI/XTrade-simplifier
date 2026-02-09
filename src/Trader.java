@@ -10,9 +10,9 @@ public class Trader extends Person {
           System.out.println("Quantité invalide");
           return;
       }
-      double buy =actif.getPrix()*quantite ;
-    if(solde>=buy){
-        solde -=buy;
+      double montant =actif.getPrix()*quantite ;
+    if(solde>= montant){
+        solde -= montant;
         portfolio.ajouterActif(actif,quantite);
         System.out.println("Achat réussi ");
     }else {
@@ -30,8 +30,8 @@ public void effuctuerventeAsset(Asset actif ,double quantite){
      boolean vendu =portfolio.retirerActif(actif,quantite);
 
      if (vendu){
-         double mantant = actif.getPrix()*quantite;
-         solde += mantant;
+         double montant = actif.getPrix()*quantite;
+         solde += montant;
          System.out.println("Vente réussie");
      }
 }

@@ -120,10 +120,9 @@ public class Market {
         double quantite= sc.nextDouble();
 
 
-
         trader.effuctuerAchetAsset(actif,quantite);
 
-        Transaction trans =new Transaction("Achat",actif,quantite,new Date());
+        Transaction trans =new Transaction("Achat",actif,quantite,trader);
         transactions.add(trans);
         System.out.println("Market: transaction enregistrée");
 
@@ -141,10 +140,50 @@ public class Market {
         double quantite = sc.nextDouble();
         trader.effuctuerventeAsset(actif,quantite);
 
-        Transaction trans =new Transaction("Vente",actif,quantite,new Date());
+        Transaction trans =new Transaction("Vente",actif,quantite,trader);
         transactions.add(trans);
         System.out.println("Market: transaction enregistrée");
     }
+
+    // deuxiem partie
+    // Afficher toutes les transactions d’un trader donné
+    public void afficherTrancastiontrader(){
+        System.out.println("=====Afficher Transaction Trader====");
+        System.out.println("Entrer id Trader :");
+        int id= sc.nextInt();
+        List<Transaction>traderList=transactions.stream()
+                .filter(a->a.getTrader().getId()==id).toList();
+                traderList.forEach(System.out::println);
+    }
+    //Filtrer les transactions par : type (BUY / SELL), actif financier (ex : AAPL, BTC, EUR/USD), intervalle de dates
+    public void filtrer(){
+        System.out.println("=====Filtrer Transaction  by type (Vente/Achat)=====");
+        System.out.println("Entrer le type :");
+        String type=sc.nextLine();
+        List<Transaction>choix=transactions.stream()
+                .filter(b->b.getType().equals(type)).toList();
+                choix.forEach(System.out::println);
+        System.out.println("===Filtrer Transaction  by Actif ======");
+        System.out.println("Entrer code actif");
+        String code=sc.nextLine();
+        List<Transaction>actifList=transactions.stream()
+                .filter(b->b.getActif().getCode().equals(code)).toList();
+        actifList.forEach(System.out::println);
+
+    }
+    public void trierTransaction(){
+        //Trier par date
+        System.out.println("======Trier Transaction par date=====");
+        System.out.println();
+        List<Transaction>date=transactions.stream()
+                        .sorted((t1,t2)->t2.getDate().compareTo(t1.getDate())).toList();
+                        date.forEach(System.out::println);
+        // trier par montant
+          List<Transaction>montant=transactions.stream()
+          .sorted(Comparator.comparing(Transaction::getMontant)).toList();
+             montant.forEach(System.out::println);
+    }
+
 
     //utiliser Random
     public void UpdatePrixAsset(){

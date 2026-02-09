@@ -12,7 +12,11 @@ public  class Main {
                         "| 1 - Ajouter un Trader                   |\n" +
                         "| 2 - Ajouter un Asset                    |\n" +
                         "| 3 - Mettre à jour les prix (Random)     |\n" +
-                        "| 4 - Quitte                              |\n" +
+                        "| 4 - Afficher transaction Trader(Stream) |\n" +
+                        "| 5 - Filtrer transaction (Stream)        |\n" +
+                        "| 6 - trier transaction (Stream)          |\n" +
+                        "| 7 - Mettre à jour les prix (Random)     |\n" +
+                        "| 8 - Quitte                              |\n" +
                         "|_________________________________________|");
                 System.out.println("choisi--->");
                 choix = input.nextInt();
@@ -20,11 +24,14 @@ public  class Main {
                     case 1: market.ajouterTrader(); break;
                     case 2: market.ajouterAsset();break;
                     case 3: market.UpdatePrixAsset(); break;
+                    case 4: market.afficherTrancastiontrader(); break;
+                    case 5: market.filtrer(); break;
+                    case 6: market.trierTransaction(); break;
                 }
             } catch (Exception e) {
                 System.out.println("Erreur"+e);
             }
-        } while (choix != 4);
+        } while (choix != 8);
         return choix;
     }
 
@@ -71,6 +78,7 @@ public  class Main {
 
 
     public static void main(String[] args) {
+
         int choisi = 0;
             do {
                 System.out.println("======== MENU PRINCIPAL =======");
@@ -80,7 +88,7 @@ public  class Main {
                         "| 3 - Quitte                 |\n" +
                         "|____________________________|");
                 System.out.println("choisi--->");
-                choisi = input.nextInt();
+                choisi = input.nextInt();   
                 switch (choisi) {
                     case 1:
                         admin();
